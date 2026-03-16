@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+
+
+
+
+
+
+/* --------------------------------  Scrollbar width  -----------------------------*/
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Remove arrows */
+::-webkit-scrollbar-button {
+  display: none;
+  height: 0;
+  width: 0;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #111;
+}
+
+/* Thumb */
+::-webkit-scrollbar-thumb {
+  background: #777777;
+  border-radius: null;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8d8d8d;
+}
+
+
+
+
+
+
+/* ------------------------------------  for custom font  --------------------------------------*/
+@font-face {
+  font-family: 'Cornerstone';
+  src: url('../assets/font/Cornerstone.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+.cornerstoneDiv {
+  font-family: 'Cornerstone', sans-serif;
+  font-size: 24px;
+}
