@@ -1,11 +1,6 @@
 @import "tailwindcss";
 
 
-
-
-
-
-
 /* --------------------------------  Scrollbar width  -----------------------------*/
 ::-webkit-scrollbar {
   width: 6px;
@@ -49,6 +44,10 @@
 
 
 .cornerstoneDiv {
-  font-family: 'Cornerstone', sans-serif;
-  font-size: 24px;
+    font-family: 'Cornerstone', sans-serif;
 }
+
+/* import link to index.html , check tailwind.config.js and create a css class  */
+.playfairDisplayDiv {
+    font-family: 'Playfair Display', serif;
+} 

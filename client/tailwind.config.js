@@ -1,3 +1,5 @@
+import { dot } from 'node:test/reporters';
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -7,10 +9,11 @@ export default {
 
   theme: {
     extend: {
-        fontFamily: {
-        cornerstone: ['Cornerstone', 'sans-serif'],
+         fontFamily: {   
+          cornerstone: ['Cornerstone', 'sans-serif'],
+          PlayfairDisplay: ['Playfair Display', 'serif'],
+      },
       },
     },
-  },
   plugins: [],
 }

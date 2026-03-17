@@ -7,6 +7,8 @@ import {
 import { ErrorBoundary } from "react-error-boundary";
 import ScrollToTop from "../utils/ScrollToTop";
 import MainHome from "../pages/MainHome";
+import Team from "../pages/client/Team";
+import AmateurRadio from "../pages/client/AmateurRadio";
 
 
 
@@ -75,6 +77,22 @@ const AppRouter = () => {
           element: (
             <RouteWrapper>
               <MainHome />
+            </RouteWrapper>
+          ),
+        },
+        {
+          path: "/team",
+          element: (
+            <RouteWrapper>
+              <Team />
+            </RouteWrapper>
+          ),
+        },
+        {
+          path: "/amateur-radio",
+          element: (
+            <RouteWrapper>
+              <AmateurRadio />
             </RouteWrapper>
           ),
         },

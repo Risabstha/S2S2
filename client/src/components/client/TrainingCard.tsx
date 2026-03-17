@@ -22,7 +22,7 @@ const TrainingCard = ({ card }: CardProps) => {
         </span>
 
         {/* Canvas area */}
-        <div className="w-full aspect-[4/3] bg-[#dedad3]  p-2  rounded-r-[80px] overflow-hidden">
+        <div className="w-full aspect-[4/3] shadow-[0_2px_12px_rgba(0,0,0,0.06)] bg-[#dedad3]  xl:p-3 lg:p-2 md:p-1.5 sm:p-1 p-2  rounded-br-[45px] md:rounded-br-[60px] xl:rounded-br-[80px] overflow-hidden">
           {card.canvas}
         </div>
 

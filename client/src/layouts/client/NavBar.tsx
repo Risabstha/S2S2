@@ -4,7 +4,7 @@ import logo from "../../assets/client/s2s2logo.webp";
 
 // ── Types ──────────────────────────────────────────────────────────────────
 type SubItem = { label: string; desc: string; external?: boolean };
-type NavItem = { label: string; sub: SubItem[] };
+type NavItem = { label: string; sub: SubItem[]; href?: string };
 
 // ── Nav data ───────────────────────────────────────────────────────────────
 const NAV_ITEMS: NavItem[] = [
@@ -19,7 +19,7 @@ const NAV_ITEMS: NavItem[] = [
   // { label: "Gallery", sub: [{
   // label: "Training", desc: "Training materials and resources." }]
   // },
-  { label: "Team", sub: [] },
+  { label: "Team", sub: [], href: "/team" },
 ];
 
 // ── Icons ──────────────────────────────────────────────────────────────────
@@ -220,7 +220,7 @@ function MobileNav() {
                 </>
               ) : (
                 <a
-                  href="#"
+                  href={item.href ?? "#"}
                   className="flex items-center py-3.5 text-[14px] font-medium text-black hover:text-red-600 transition-colors no-underline"
                 >
                   {item.label}
