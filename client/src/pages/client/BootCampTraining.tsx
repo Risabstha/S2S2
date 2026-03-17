@@ -65,7 +65,7 @@ export default function BootCampTraining() {
     ...card,
     canvas:
       index === 0 ? (
-        <div className="grid grid-cols-2 grid-rows-2 h-full w-full gap-1 p-1 bg-[#d9d7d0]">
+        <div className="grid grid-cols-2 grid-rows-2 h-full w-full overflow-hidden rounded-r-[80px] gap-2  bg-[#d9d7d0]">
           {COLLAGE_IMAGES.map((image, imageIndex) => (
             <img
               key={image}
@@ -176,14 +176,17 @@ export default function BootCampTraining() {
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
 
-            {cards.map((card, index) => (
-              <div
-                key={`${card.num}-${index}`}
-                className={`flex-shrink-0 w-[20rem]  sm:w-[47.5rem] border-r border-black/[0.07] last:border-r-0`}
-              >
+          {cards.map((card, index) => (
+            <div
+              key={`${card.num}-${index}`}
+              className={`flex-shrink-0 w-[20rem]  sm:w-[47.5rem] border-r border-black/[0.07] last:border-r-0`}
+            >
+              <div key={card.num} className="flex flex-col p-5 sm:p-6 lg:p-7 gap-4  lg:gap-5">
+
                 <TrainingCard card={card} />
               </div>
-            ))}
+            </div>
+          ))}
 
         </div>
       </div>
