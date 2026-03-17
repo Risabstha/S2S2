@@ -131,12 +131,12 @@ const Footer = () => {
                 className="w-8 h-8 object-contain"
               />
               <div>
-                <span className={`text-sm font-bold text-gray-800`}>
+                <span className={`text-sm font-bold text-[#C18374#183148] playfairDisplayDiv`}>
                   Slippers
                 </span>
-                <span className="text-sm font-bold text-[#2e50f0]">2</span>
-                <span className={`text-sm font-bold text-gray-800`}>Sat</span>
-                <span className={`text-sm pl-2 font-bold text-[#2e50f0]`}>2</span>
+                <span className="text-sm font-bold text-[#C18374] ">2</span>
+                <span className={`text-sm font-bold text-[#183148] playfairDisplayDiv`}>Sat</span>
+                <span className={`text-sm pl-2 font-bold text-[#C18374] `}>2</span>
               </div>
             </div>
             <div className="flex items-center gap-2">
@@ -147,11 +147,11 @@ const Footer = () => {
               />
 
               <div>
-                <div className={`text-sm font-bold text-gray-800`}>
+                <div className={`text-sm font-bold text[#C18374] playfairDisplayDiv`}>
                   Antarikchya
                 </div>
-                <div className="text-sm font-bold text-[#2e50f0]">Pratisthan</div>
-                <div className={`text-sm font-bold text-gray-800`}>Nepal</div>
+                <div className="text-sm font-bold text-[#C18374] playfairDisplayDiv">Pratisthan</div>
+                <div className={`text-sm font-bold text-[#183148] playfairDisplayDiv`}>Nepal</div>
               </div>
             </div>
           </div>
@@ -159,7 +159,7 @@ const Footer = () => {
           {/* Quick Links */}
           <div className="">
             <h3
-              className={`text-lg font-bold text-gray-800 mb-1 md:mb-2 lg:mb-3`}
+              className={`text-lg font-bold text-[#C18374] hover:text-[#183148]  mb-1 md:mb-2 lg:mb-3 playfairDisplayDiv`}
             >
               Quick Links
             </h3>
@@ -180,19 +180,19 @@ const Footer = () => {
           {/* Get in Touch */}
           <div className="">
             <h3
-              className={`text-lg font-bold text-gray-800 hover:text-gray-500  mb-1 md:mb-2 lg:mb-3`}
+              className={`text-lg font-bold text-[#C18374] hover:text-[#183148]  mb-1 md:mb-2 lg:mb-3 playfairDisplayDiv`}
             >
               Get in Touch
             </h3>
 
             {/* Email */}
             <div className="flex items-center gap-3 mb-6">
-              <Mail className="w-5 h-5 text-[#2e50f0]" />
+              <Mail className="w-5 h-5 text-[#2F5064]" />
               <a
                 href="https://mail.google.com/mail/?view=cm&to=slippers2sat-2@antarikchya.org.np"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#2e50f0] hover:underline text-sm"
+                className="text-[#2F5064] hover:underline text-sm"
               >
                 slippers2sat-2@antarikchya.org.np
               </a>
@@ -218,12 +218,12 @@ const Footer = () => {
         {/* Divider */}
         <div className={`border-t border-gray-400 pt-2 md:pt-4 lg:pt-6`}>
           <p
-            className={`text-center text-gray-800 hover:text-gray-500  text-sm`}
+            className={`text-center text-gray-800 hover:text-gray-500  text-sm playfairDisplayDiv`}
           >
             © {new Date().getFullYear()} Antarikchya Pratisthan Nepal
           </p>
           <p
-            className={`text-center text-gray-800 hover:text-gray-500  text-sm`}
+            className={`text-center text-gray-800 hover:text-gray-500  text-sm playfairDisplayDiv`}
           >
             All rights reserved
           </p>

@@ -210,11 +210,11 @@ export default function BootCampTraining() {
   const pageCount = Math.max(CARD_DATA.length - getCardsPerView() + 1, 1);
 
   return (
-    <div className="w-full flex justify-center items-center mt-30">
+    <div className="w-full flex justify-center items-center pt-30 md:pt-50 md:pb-30 pb-20">
       <div className="w-full max-w-[100rem] bg-[#ebe9e3] flex flex-col">
         {/* Header row with nav arrows */}
         <div className={`flex items-center justify-between  px-6  mb-15`}>
-          <h1 className="text-[clamp(2rem,4vw,3.2rem)] leading-[1.1] text-[#1a1a18] playfairDisplayDiv">Bootcamp Training</h1>
+          <h1 className="text-[clamp(2rem,4vw,3.2rem)] leading-[1.1] text-[#C18374] playfairDisplayDiv">Bootcamp Training</h1>
         </div>
 
         {/*  arrow left and right */}

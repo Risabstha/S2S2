@@ -22,10 +22,10 @@ export default function TeamCard({ member }: TeamCardProps) {
       </div>
 
       <div className="relative z-10 pt-65 h-full flex flex-col">
-        <h2 className="text-[25px] md:text-[30px] lg:text-[35px] leading-[1.08] font-semibold mb-2 max-w-[18ch]">
+        <h2 className="text-[25px] md:text-[30px] lg:text-[35px] leading-[1.08] text-[#2F5064] font-semibold mb-2 max-w-[18ch] playfairDisplayDiv">
           {member.name}
         </h2>
-        <p className="text-[14px] md:text-[16px] lg:text-[18px] leading-[1.2] text-black/85 font-medium mb-3">
+        <p className="text-[14px] md:text-[16px] lg:text-[18px] leading-[1.2] text-black/85 font-semibold mb-3 playfairDisplayDiv ">
           {member.role}
         </p>
         <p className="text-[13px] md:text-[14px] lg:text-[15px] leading-[1.55] text-black/80 max-w-[35ch]">

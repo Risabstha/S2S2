@@ -1,25 +1,25 @@
 import { useState, type ReactElement } from "react";
-import { Bs2SquareFill } from "react-icons/bs";
 import logo from "../../assets/client/s2s2logo.webp";
+import two_finger from "../../assets/client/two_fingers2.png";
 
 // ── Types ──────────────────────────────────────────────────────────────────
-type SubItem = { label: string; desc: string; external?: boolean };
+type SubItem = { label: string; desc: string; href: string; external?: boolean };
 type NavItem = { label: string; sub: SubItem[]; href?: string };
 
 // ── Nav data ───────────────────────────────────────────────────────────────
 const NAV_ITEMS: NavItem[] = [
-  {
-    label: "Open Source",
-    sub: [
-      { label: "S2S-2 Missions", desc: "Mission logs, objectives and telemetry." },
-      { label: "Bus System", desc: "Satellite bus architecture and hardware specs." },
-    ],
-  },
-  { label: "Amateur Radio", sub: [] },
+  // {
+  //   label: "Open Source",
+  //   sub: [
+  //     { label: "S2S-2 Missions", desc: "Mission logs, objectives and telemetry.", href: "/" },
+  //     { label: "Bus System", desc: "Satellite bus architecture and hardware specs.", href: "/" },
+  //   ],
+  // },
+  { label: "Amateur Radio", sub: [], href: "/amateur-radio" },
   // { label: "Gallery", sub: [{
   // label: "Training", desc: "Training materials and resources." }]
   // },
-  { label: "Team", sub: [], href: "/team" },
+  { label: "About Us", sub: [], href: "/aboutus" },
 ];
 
 // ── Icons ──────────────────────────────────────────────────────────────────
@@ -89,13 +89,19 @@ function Logo() {
     <a href="/" className="flex items-center gap-0 no-underline">
       <img src={logo} alt="S2S-2 logo" width={48} height={48} className="rounded-full object-cover" />
       <div className="flex items-baseline gap-0 ml-1">
-        <span className="font-bold text-xl text-black tracking-[0.12em] select-none">Slippers</span>
-        <span className="font-bold text-xl text-[#2e50f0] tracking-[0.12em] select-none">2</span>
-        <span className="font-bold text-xl text-black tracking-[0.12em] select-none">Sat</span>
+        <span className="font-bold text-xl text-[#2F5064] tracking-[0.12em] select-none">Slippers</span>
+        <span className="font-bold text-xl text-[#C18374] tracking-[0.12em] select-none">2</span>
+        <span className="font-bold text-xl text-[#2F5064] tracking-[0.12em] select-none">Sat</span>
       </div>
-      <span className=" text-4xl mb-0.5 text-[#2e50f0] tracking-[0.12em] select-none">
+      <span className=" text-4xl mb-0.5 text-[#C18374] tracking-[0.12em] select-none">
         {/* <Bs2SquareFill size={18} /> */}
-        2
+        <img
+          src={two_finger}
+          alt="Two fingers icon"
+          width={36}
+          height={36}
+          className="inline-block object-contain "
+        />
       </span>
     </a>
   );
@@ -106,11 +112,11 @@ function DesktopNav() {
   const [open, setOpen] = useState<string | null>(null);
 
   return (
-    <div className="hidden md:flex items-center justify-between w-full max-w-[100rem] mx-auto px-8 h-[70px]">
+    <div className="hidden md:flex items-center justify-between w-full max-w-[100rem] mx-auto px-8 h-[90px]">
       <Logo />
 
       {/* Links */}
-      <div className="flex items-center  gap-0.5">
+      <div className="flex items-center  gap-1.5 ">
         {NAV_ITEMS.map((item) => (
           <div
             key={item.label}
@@ -118,29 +124,38 @@ function DesktopNav() {
             onMouseEnter={() => setOpen(item.label)}
             onMouseLeave={() => setOpen(null)}
           >
-            <button className="flex items-center gap-1 text-black text-base hover:text-red-600 px-3 py-6 rounded-lg transition-all duration-100 cursor-pointer ">
-              {item.label}
-              {item.sub.length > 0 && <ChevronDown open={open === item.label} />}
-            </button>
+            {item.sub.length > 0 ? (
+              <button className="flex items-center gap-1 text-[#C18374] text-[20px] hover:text-[#183148] px-3 py-7.5 rounded-lg transition-all duration-100 cursor-pointer ">
+                {item.label}
+                <ChevronDown open={open === item.label} />
+              </button>
+            ) : (
+              <a
+                href={item.href}
+                className="flex items-center gap-1 text-[#C18374] text-[20px] hover:text-[#183148] px-3 py-7.5 rounded-lg transition-all duration-100 cursor-pointer no-underline"
+              >
+                {item.label}
+              </a>
+            )}
 
             {item.sub.length > 0 && open === item.label && (
-              <div className="absolute top-full left-0 bg-[#ebe9e3] border rounded-sm border-black/[0.09] p-2 min-w-[280px] shadow-2xl shadow-black/10 z-50">
+              <div className="absolute top-full left-0 bg-[#ebe9e3] border rounded-sm border-black/[0.09] p-2 min-w-[320px] shadow-2xl shadow-black/10 z-50">
                 <div className="absolute -top-3 left-0 right-0 h-3" />
                 {item.sub.map((s) => (
                   <a
                     key={s.label}
-                    href="#"
+                    href={s.href}
                     className="flex items-start gap-3 px-4 py-3 hover:bg-black/[0.05] rounded-sm transition-colors group no-underline"
                   >
                     <div className="mt-0.5 w-8 h-8 flex-shrink-0 rounded-lg bg-[#ebe9e3] border border-black/[0.08] flex items-center justify-center">
                       {SUB_ICONS[s.label]}
                     </div>
-                    <div className="flex-1 min-w-0">
+                    <div className="flex-1 min-w-0 ">
                       <div className="flex items-center gap-1.5">
-                        <span className="text-[13.5px] font-medium text-black">{s.label}</span>
+                        <span className="text-[17px] font-medium text-[#C18374]">{s.label}</span>
                         {s.external && <ExternalArrow />}
                       </div>
-                      <p className="text-[12px] text-[#444] mt-0.5 leading-relaxed">{s.desc}</p>
+                      <p className="text-[15px] text-[#C18374] mt-0.5 leading-relaxed">{s.desc}</p>
                     </div>
                   </a>
                 ))}
@@ -151,9 +166,9 @@ function DesktopNav() {
       </div>
 
       {/* CTA */}
-      <button className="bg-[#2e50f0] hover:bg-[#3a5cf5] text-white text-[13.5px] font-medium px-5 py-[7px] rounded-full transition-colors duration-150">
+      {/* <button className="bg-[#C18374] hover:bg-[#183148] text-white text-[13.5px] font-medium px-5 py-[7px] rounded-full transition-colors duration-150">
         Contact Us
-      </button>
+      </button> */}
     </div>
   );
 }
@@ -189,7 +204,7 @@ function MobileNav() {
                 <>
                   <button
                     onClick={() => toggleItem(item.label)}
-                    className="flex items-center justify-between w-full py-3.5 text-[14px] font-medium text-black hover:text-red-600 transition-colors"
+                    className="flex items-center justify-between w-full py-3.5 text-[14px] font-medium text-[#C18374] hover:text-[#183148] transition-colors"
                   >
                     {item.label}
                     <ChevronDown open={expandedItem === item.label} />
@@ -208,10 +223,10 @@ function MobileNav() {
                           </div>
                           <div>
                             <div className="flex items-center gap-1.5">
-                              <span className="text-[13px] font-medium text-black">{s.label}</span>
+                              <span className="text-[13px] font-medium text-[#C18374]">{s.label}</span>
                               {s.external && <ExternalArrow />}
                             </div>
-                            <p className="text-[11.5px] text-[#555] mt-0.5 leading-relaxed">{s.desc}</p>
+                            <p className="text-[11.5px] text-[#C18374] mt-0.5 leading-relaxed">{s.desc}</p>
                           </div>
                         </a>
                       ))}
@@ -221,7 +236,7 @@ function MobileNav() {
               ) : (
                 <a
                   href={item.href ?? "#"}
-                  className="flex items-center py-3.5 text-[14px] font-medium text-black hover:text-red-600 transition-colors no-underline"
+                  className="flex items-center py-3.5 text-[14px] font-medium text-[#C18374] hover:text-[#183148] transition-colors no-underline"
                 >
                   {item.label}
                 </a>
@@ -230,9 +245,9 @@ function MobileNav() {
           ))}
 
           {/* CTA */}
-          <button className="mt-4 w-full bg-[#2e50f0] hover:bg-[#3a5cf5] text-white text-[14px] font-medium py-2.5 rounded-full transition-colors duration-150">
+          {/* <button className="mt-4 w-full bg-[#C18374] hover:bg-[#183148] text-white text-[14px] font-medium py-2.5 rounded-full transition-colors duration-150">
             Contact Us
-          </button>
+          </button> */}
         </div>
       )}
     </>

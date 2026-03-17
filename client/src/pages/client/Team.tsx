@@ -1,50 +1,64 @@
 import { useRef, useState } from "react";
-import img from "../../assets/client/image.webp";
+import kriti from "../../assets/client/Team/kriti.webp";
+import pari from "../../assets/client/Team/pari.jpg";
+import rohit from "../../assets/client/Team/rohit.jpg";
+import shristi from "../../assets/client/Team/shristi.jpg";
+import subrat from "../../assets/client/Team/Subrat.jpg";
+import sakril from "../../assets/client/Team/sakril.jpg";
 import TeamCard, { type TeamMember } from "../../components/client/TeamCard";
+import male from "../../assets/client/Team/male.webp"
 
 const TEAM_MEMBERS: TeamMember[] = [
   {
     id: 1,
-    img: img,
-    name: "Sujan Maharjan",
-    role: "Project Lead",
-    bio: "Leads the Slippers2Sat mission planning, cross-team coordination, and launch readiness activities.",
+    img: kriti,
+    name: "Kriti Dahal",
+    role: "Project Manager",
+    bio: "Leads the Slippers2Sat-2 mission planning, cross-team coordination, and launch readiness activities.",
   },
   {
-    id: "PK",
-    img: img,
-    name: "Priya Khatri",
-    role: "ADCS Engineer",
+    id: "2",
+    img: pari,
+    name: "Pari Khaniwa",
+    role: "Satellite Research Fellow",
     bio: "Works on attitude determination and control algorithms to maintain satellite stability in orbit.",
   },
   {
-    id: "RA",
-    img: img,
-    name: "Rabin Acharya",
-    role: "Communication Systems Engineer",
+    id: "3",
+    img: rohit,
+    name: "Rohit Shrestha",
+    role: "Satellite Research Fellow",
     bio: "Designs and validates telemetry, tracking, and command subsystems for reliable mission operations.",
   },
+    {
+    id: "4",
+    name: "Sakril Baidya",
+    role: "Satellite Research Fellow",
+    img: sakril,
+    bio: "Connects mission activities with student learning modules and school-based satellite workshops.",
+  },
+    {
+    id: "5",
+    name: "Arnav Shrestha",
+    role: "Satellite Research Fellow",
+    img: male,
+    bio: "Connects mission activities with student learning modules and school-based satellite workshops.",
+  },
   {
-    id: "NS",
-    img: img,
-    name: "Nima Sherpa",
-    role: "Payload & Data Engineer",
+    id: "6",
+    img: shristi,
+    name: "Shristi Tuladhar",
+    role: "Satellite Research Fellow",
     bio: "Develops payload workflows and processing pipelines for Earth observation and mission data products.",
   },
   {
-    id: "BT",
-    img: img,
-    name: "Bikash Thapa",
-    role: "Embedded Systems Engineer",
+    id: "7",
+    img: subrat,
+    name: "Subrat KC",
+    role: "Satellite Research Fellow",
     bio: "Builds onboard software and integrates hardware interfaces for robust CubeSat operations.",
   },
-  {
-    id: "AS",
-    name: "Anita Shrestha",
-    role: "Education Program Coordinator",
-    img: img,
-    bio: "Connects mission activities with student learning modules and school-based satellite workshops.",
-  },
+
 ];
 
 const Team = () => {
@@ -94,13 +108,13 @@ const Team = () => {
   };
 
   return (
-    <section className="w-full bg-[#ebe9e3] pt-28 pb-16 px-6 sm:px-8 lg:px-12">
+    <section className="w-full bg-[#ebe9e3] pt-30 md:pt-50 md:pb-30 pb-20 px-6 sm:px-8 lg:px-12 ">
       <div className="w-full max-w-[100rem] mx-auto">
         <div className="mb-8 sm:mb-10">
           <p className="text-[12px] uppercase tracking-[0.14em] text-black/45 mb-3">
             Meet the
           </p>
-          <h1 className="text-[clamp(2rem,4vw,3.2rem)] leading-[1.1] text-[#1a1a18] playfairDisplayDiv">
+          <h1 className="text-[clamp(2rem,4vw,3.2rem)] text-[#C18374] leading-[1.1] text-[#1a1a18] playfairDisplayDiv">
             Team Members
           </h1>
         </div>
