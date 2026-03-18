@@ -157,11 +157,11 @@ export default function MissionObjectives() {
             }}
           >
             <h2
-              className="text-[clamp(2rem,4vw,3.2rem)] font-normal leading-[1.15] text-[#1a1a18]  m-0 playfairDisplayDiv max-w-[450px] text-[#C18374]"
+              className="text-[clamp(2rem,4vw,3.2rem)]  leading-[1.15] text-[#1a1a18]  m-0 playfairDisplayDiv max-w-[450px] text-[#C18374]"
             >
               Our mission
               <br />
-              <em className="text-black/70  font-italic " >
+              <em className="text-[#2f5064]  font-italic " >
                 &amp; objectives
               </em>
             </h2>

@@ -1,10 +1,10 @@
 import { useRef, useState } from "react";
 import kriti from "../../assets/client/Team/kriti.webp";
-import pari from "../../assets/client/Team/pari.jpg";
-import rohit from "../../assets/client/Team/rohit.jpg";
-import shristi from "../../assets/client/Team/shristi.jpg";
-import subrat from "../../assets/client/Team/Subrat.jpg";
-import sakril from "../../assets/client/Team/sakril.jpg";
+import pari from "../../assets/client/Team/pari.webp";
+import rohit from "../../assets/client/Team/rohit.webp";
+import shristi from "../../assets/client/Team/shristi.webp";
+import subrat from "../../assets/client/Team/Subrat.webp";
+import sakril from "../../assets/client/Team/sakril.webp";
 import TeamCard, { type TeamMember } from "../../components/client/TeamCard";
 import male from "../../assets/client/Team/male.webp"
 

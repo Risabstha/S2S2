@@ -1,16 +1,22 @@
 import { useEffect, useRef, useState, type JSX } from "react";
 import TrainingCard from "../../components/client/TrainingCard";
-import bardibasImg1 from "../../assets/client/bardibas training/1.jpg";
-import bardibasImg2 from "../../assets/client/bardibas training/2.jpg";
-import bardibasImg3 from "../../assets/client/bardibas training/3.jpg";
-import bardibasImg4 from "../../assets/client/bardibas training/5.jpg";
-import bardibasImg5 from "../../assets/client/bardibas training/6.jpg";
-import bardibasImg6 from "../../assets/client/bardibas training/7.jpg";
-import surkhetImg1 from "../../assets/client/surkhet training/1.jpg";
-import surkhetImg2 from "../../assets/client/surkhet training/2.jpg";
-import surkhetImg3 from "../../assets/client/surkhet training/3.jpg";
-import surkhetImg4 from "../../assets/client/surkhet training/4.jpg";
-import surkhetImg5 from "../../assets/client/surkhet training/5.jpg";
+import bardibasImg1 from "../../assets/client/bardibas training/poster/1.webp";
+import bardibasImg2 from "../../assets/client/bardibas training/poster/2.webp";
+import bardibasImg3 from "../../assets/client/bardibas training/poster/3.webp";
+import bardibasImg4 from "../../assets/client/bardibas training/poster/4.webp";
+import bardibasImg5 from "../../assets/client/bardibas training/poster/5.webp";
+import bardibasImg6 from "../../assets/client/bardibas training/poster/6.webp";
+import bardibasImg7 from "../../assets/client/bardibas training/poster/7.webp";
+import bardibasImg8 from "../../assets/client/bardibas training/poster/8.webp";
+
+import surkhetImg1 from "../../assets/client/surkhet training/poster/1.webp";
+import surkhetImg2 from "../../assets/client/surkhet training/poster/2.webp";
+import surkhetImg3 from "../../assets/client/surkhet training/poster/3.webp";
+import surkhetImg4 from "../../assets/client/surkhet training/poster/4.webp";
+import surkhetImg5 from "../../assets/client/surkhet training/poster/5.webp";
+import surkhetImg6 from "../../assets/client/surkhet training/poster/6.webp";
+import surkhetImg7 from "../../assets/client/surkhet training/poster/7.webp";
+import surkhetImg8 from "../../assets/client/surkhet training/poster/8.webp";
 
 const BARDIBAS_IMAGES = [
   bardibasImg1,
@@ -19,6 +25,8 @@ const BARDIBAS_IMAGES = [
   bardibasImg4,
   bardibasImg5,
   bardibasImg6,
+  bardibasImg7,
+  bardibasImg8,
 ];
 const SURKHET_IMAGES = [
   surkhetImg1,
@@ -26,6 +34,9 @@ const SURKHET_IMAGES = [
   surkhetImg3,
   surkhetImg4,
   surkhetImg5,
+  surkhetImg6,
+  surkhetImg7,
+  surkhetImg8,
 ];
 
 interface cards {
@@ -57,14 +68,14 @@ const getRotatingWindow = (
 const CARD_DATA: CardData[] = [
   {
     num: "01",
-    title: "Private Data",
-    desc: "Run code inside hardware-secured enclaves. Data stays encrypted even from server operators.",
+    title: "Bardibas Training",
+    desc: "Empowering the Next Generation into the world of amateur radio, transforming from tech enthusiasts into critical community lifelines..",
     images: BARDIBAS_IMAGES,
   },
   {
     num: "02",
-    title: "Verifiable Execution",
-    desc: "Every execution produces cryptographic proof that users can verify without blind trust.",
+    title: "Surkhet Training",
+    desc: "Bridging the Digital Divide by conducted specialized Amateur Radio bootcamps for high school students.",
     images: SURKHET_IMAGES,
   },
 
@@ -120,15 +131,19 @@ export default function BootCampTraining() {
       title: card.title,
       desc: card.desc,
       canvas: (
-        <div className="grid grid-cols-2 grid-rows-2 h-full w-full overflow-hidden rounded-br-[45px] md:rounded-br-[60px] xl:rounded-br-[80px]  xl:gap-3 lg:gap-2 md:gap-1.5 sm:gap-1 gap-2 bg-[#d9d7d0]">
+        <div className="grid grid-cols-2 grid-rows-2 h-full w-full overflow-hidden   xl:gap-3 lg:gap-2 md:gap-1.5 sm:gap-1 gap-2 bg-[#d9d7d0]">
           {collageImages.map((image, imageIndex) => (
-            <img
+            <div
               key={image}
-              src={image}
-              alt={`${card.title} collage ${imageIndex + 1}`}
-              className={`w-full h-full object-cover transition-all duration-500 ease-out ${isImageVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-2 scale-95"} ${imageIndex === 0 ? "delay-0" : imageIndex === 1 ? "delay-75" : imageIndex === 2 ? "delay-150" : "delay-200"}`}
-              draggable={false}
-            />
+              className={`w-full h-full bg-[#ebe9e3] border border-[#dfdacf] rounded-sm p-0.5 pb-1 shadow-[0_3px_10px_rgba(0,0,0,0.1)] overflow-hidden ${imageIndex % 2 === 0 ? "-rotate-0.5" : "rotate--0.5"}`}
+            >
+              <img
+                src={image}
+                alt={`${card.title} collage ${imageIndex + 1}`}
+                className={`w-full h-full object-cover rounded-[2px] transition-all duration-500 ease-out ${isImageVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-2 scale-95"} ${imageIndex === 0 ? "delay-0" : imageIndex === 1 ? "delay-75" : imageIndex === 2 ? "delay-150" : "delay-200"}`}
+                draggable={false}
+              />
+            </div>
           ))}
         </div>
       ),
