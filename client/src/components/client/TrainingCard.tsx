@@ -1,5 +1,5 @@
 
-import { useEffect, useRef, type JSX } from "react";
+import {  type JSX } from "react";
 
 
 interface cards {
@@ -17,9 +17,9 @@ const TrainingCard = ({ card }: CardProps) => {
   return (
     <div>
         {/* Number */}
-        <span className="text-[13px] text-[#888] font-normal tabular-nums">
+        {/* <span className="text-[13px] text-[#888] font-normal tabular-nums">
           {card.num}
-        </span>
+        </span> */}
 
         {/* Canvas area */}
         <div className="w-full aspect-[4/3] shadow-[0_2px_12px_rgba(0,0,0,0.06)] bg-[#dedad3]  xl:p-3 lg:p-2 md:p-1.5 sm:p-1 p-2   overflow-hidden ">

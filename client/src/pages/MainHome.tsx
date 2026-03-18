@@ -3,6 +3,7 @@ import Footer from '../components/client/Footer'
 import BootCampTraining from './client/BootCampTraining'
 import Collabration from './client/Collabration'
 import Satellite from './client/Satellite'
+import  AboutMissionAndCollabrator from './client/aboutMissionAndCollabrator'
 
 
 const MainHome = () => {
@@ -10,6 +11,7 @@ const MainHome = () => {
     <div>
       <Home/>
       <Collabration/>
+      <AboutMissionAndCollabrator/>
       <Satellite/>
       <BootCampTraining/>
       <Footer/>

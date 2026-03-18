@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type JSX } from "react";
 import TrainingCard from "../../components/client/TrainingCard";
-import bardibasImg1 from "../../assets/client/bardibas training/poster/1.webp";
+import bardibasImg1 from "../../assets/client/bardibas training/poster/9.webp";
 import bardibasImg2 from "../../assets/client/bardibas training/poster/2.webp";
 import bardibasImg3 from "../../assets/client/bardibas training/poster/3.webp";
 import bardibasImg4 from "../../assets/client/bardibas training/poster/4.webp";
@@ -262,13 +262,13 @@ export default function BootCampTraining() {
           onMouseLeave={stopDrag}
           onScroll={syncActiveIndex}
           // snap-x snap-mandatory is a neat CSS way to snap to cards, but it doesn't work well with the custom drag behavior, so we handle snapping manually in stopDrag
-          className="flex overflow-x-auto scroll-smooth scrollbar-hide snap-x snap-mandatory gap-x-2 border-y border-black/[0.07] border cursor-grab active:cursor-grabbing select-none"
+          className="flex overflow-x-auto scroll-smooth scrollbar-hide snap-x snap-mandatory gap-x-2   cursor-grab active:cursor-grabbing select-none"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           {cards.map((card, index) => (
             <div
               key={`${card.num}-${index}`}
-              className={`snap-start flex-shrink-0 px-3 sm:px-0 xl:px-6 py-1  sm:py-0 xl:py-2 w-full sm:w-[49.75%] border-r border-black/[0.07] last:border-r-0`}
+              className={`snap-start flex-shrink-0 px-3 sm:px-0 xl:px-6 py-1  sm:py-0 xl:py-2 w-full sm:w-[49.75%]  border-black/[0.07] `}
             >
               <div
                 key={card.num}

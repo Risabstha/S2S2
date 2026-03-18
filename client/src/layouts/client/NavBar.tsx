@@ -1,6 +1,6 @@
 import { useState, type ReactElement } from "react";
 import logo from "../../assets/client/s2s2logo.webp";
-import two_finger from "../../assets/client/two_fingers2.png";
+// import two_finger from "../../assets/client/two_fingers2.png";
 
 // ── Types ──────────────────────────────────────────────────────────────────
 type SubItem = { label: string; desc: string; href: string; external?: boolean };
@@ -89,19 +89,20 @@ function Logo() {
     <a href="/" className="flex items-center gap-0 no-underline">
       <img src={logo} alt="S2S-2 logo" width={48} height={48} className="rounded-full object-cover" />
       <div className="flex items-baseline gap-0 ml-1">
-        <span className="font-bold text-xl text-[#2F5064] tracking-[0.12em] select-none">Slippers</span>
-        <span className="font-bold text-xl text-[#C18374] tracking-[0.12em] select-none">2</span>
-        <span className="font-bold text-xl text-[#2F5064] tracking-[0.12em] select-none">Sat</span>
+        <span className="font-bold text-2xl text-[#2F5064] tracking-[0.12em] select-nonej playfairDisplayDiv">Slippers</span>
+        <span className="font-bold text-2xl text-[#C18374] tracking-[0.12em] select-none playfairDisplayDiv">2</span>
+        <span className="font-bold text-2xl text-[#2F5064] tracking-[0.12em] select-none">Sat-</span>
       </div>
-      <span className=" text-4xl mb-0.5 text-[#C18374] tracking-[0.12em] select-none">
+      <span className=" text-2xl font-bold  text-[#C18374] tracking-[0.12em] select-none playfairDisplayDiv">
         {/* <Bs2SquareFill size={18} /> */}
-        <img
+        {/* <img
           src={two_finger}
           alt="Two fingers icon"
           width={36}
           height={36}
           className="inline-block object-contain "
-        />
+        /> */}
+        2
       </span>
     </a>
   );
@@ -125,14 +126,14 @@ function DesktopNav() {
             onMouseLeave={() => setOpen(null)}
           >
             {item.sub.length > 0 ? (
-              <button className="flex items-center gap-1 text-[#C18374] text-[20px] hover:text-[#183148] px-3 py-7.5 rounded-lg transition-all duration-100 cursor-pointer ">
+              <button className="flex items-center gap-1 text-[#2F5064] text-[20px] hover:text-[#183148] px-3 py-7.5 rounded-lg transition-all duration-100 cursor-pointer ">
                 {item.label}
                 <ChevronDown open={open === item.label} />
               </button>
             ) : (
               <a
                 href={item.href}
-                className="flex items-center gap-1 text-[#C18374] text-[20px] hover:text-[#183148] px-3 py-7.5 rounded-lg transition-all duration-100 cursor-pointer no-underline"
+                className="flex items-center gap-1 text-[#2F5064] text-[20px] hover:text-[#183148] px-3 py-7.5 rounded-lg transition-all duration-100 cursor-pointer no-underline"
               >
                 {item.label}
               </a>
@@ -199,12 +200,12 @@ function MobileNav() {
       {menuOpen && (
         <div className="md:hidden border-t border-black/[0.08] bg-[#ebe9e3] px-4 pb-5">
           {NAV_ITEMS.map((item) => (
-            <div key={item.label} className="border-b border-black/[0.06] last:border-b-0">
+            <div key={item.label} className="">
               {item.sub.length > 0 ? (
                 <>
                   <button
                     onClick={() => toggleItem(item.label)}
-                    className="flex items-center justify-between w-full py-3.5 text-[14px] font-medium text-[#C18374] hover:text-[#183148] transition-colors"
+                    className="flex items-center justify-between w-full py-3.5 text-[14px] font-medium text-[#2F5064] hover:text-[#183148] transition-colors"
                   >
                     {item.label}
                     <ChevronDown open={expandedItem === item.label} />
@@ -223,10 +224,10 @@ function MobileNav() {
                           </div>
                           <div>
                             <div className="flex items-center gap-1.5">
-                              <span className="text-[13px] font-medium text-[#C18374]">{s.label}</span>
+                              <span className="text-[13px] font-medium text-[#2F5064]">{s.label}</span>
                               {s.external && <ExternalArrow />}
                             </div>
-                            <p className="text-[11.5px] text-[#C18374] mt-0.5 leading-relaxed">{s.desc}</p>
+                            <p className="text-[11.5px] text-[#2F5064] mt-0.5 leading-relaxed">{s.desc}</p>
                           </div>
                         </a>
                       ))}
@@ -236,7 +237,7 @@ function MobileNav() {
               ) : (
                 <a
                   href={item.href ?? "#"}
-                  className="flex items-center py-3.5 text-[14px] font-medium text-[#C18374] hover:text-[#183148] transition-colors no-underline"
+                  className="flex items-center py-3.5 text-[14px] font-medium text-[#2F5064] hover:text-[#183148] transition-colors no-underline"
                 >
                   {item.label}
                 </a>
@@ -257,7 +258,7 @@ function MobileNav() {
 // ── NavBar ─────────────────────────────────────────────────────────────────
 const NavBar = () => {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#ebe9e3] border-b border-black/[0.08]">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#ebe9e3] ">
       <DesktopNav />
       <MobileNav />
     </nav>

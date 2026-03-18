@@ -1,26 +1,7 @@
 import NavBar from "../../layouts/client/NavBar";
 
 export default function Home() {
-  const ringSizes = [
-    "w-13 h-13",
-    "w-26 h-26",
-    "w-39 h-39",
-    "w-52 h-52",
-    "w-65 h-65",
-    "w-78 h-78",
-    "w-91 h-91",
-    "w-104 h-104",
-    "w-117 h-117",
-    "w-130 h-130",
-    "w-143 h-143",
-    "w-156 h-156",
-    "w-169 h-169",
-    "w-182 h-182",
-    "w-195 h-195",
-    "w-208 h-208",
-    "w-221 h-221",
-    "w-234 h-234",
-  ];
+
 
   return (
     <div className="w-full bg-[#ebe9e3] relative text-black overflow-x-hidden  max-w-[100rem] mx-auto">
@@ -29,7 +10,7 @@ export default function Home() {
       </div>
 
       <section className="relative  w-full h-screen max-h-[80rem] overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
+        {/* <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-0 bottom-0 w-px bg-black/[0.07]" />
           <div className="absolute top-0 left-[18%] bottom-0 w-px bg-black/[0.07]" />
           <div className="absolute top-0 left-[33%] bottom-0 w-px bg-black/[0.07]" />
@@ -37,7 +18,7 @@ export default function Home() {
           <div className="absolute top-0 right-[33%] bottom-0 w-px bg-black/[0.07]" />
           <div className="absolute top-0 right-[18%] bottom-0 w-px bg-black/[0.07]" />
           <div className="absolute top-0 right-0 bottom-0 w-px bg-black/[0.07]" />
-        </div>
+        </div> */}
 
         {/* <div className="absolute  top-24 left-1/2 -translate-x-1/2 w-full flex items-center justify-center pointer-events-none   ">
           {ringSizes.map((sizeClass, i) => (

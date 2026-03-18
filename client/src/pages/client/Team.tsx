@@ -54,7 +54,7 @@ const TEAM_MEMBERS: TeamMember[] = [
   {
     id: "7",
     img: subrat,
-    name: "Subrat KC",
+    name: "Subrat Karna",
     role: "Satellite Research Fellow",
     bio: "Builds onboard software and integrates hardware interfaces for robust CubeSat operations.",
   },
@@ -187,7 +187,7 @@ const Team = () => {
         </div>
 
         {/* ── Desktop / Tablet Grid (md+) ── */}
-        <div className="hidden md:grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {TEAM_MEMBERS.map((member) => (
             <TeamCard key={member.id} member={member} />
           ))}
@@ -204,3 +204,4 @@ const Team = () => {
 };
 
 export default Team;
+
