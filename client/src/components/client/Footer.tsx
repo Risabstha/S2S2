@@ -14,7 +14,8 @@ import s2s2logo from "../../assets/client/s2s2logo.webp";
 interface quicklink {
   id: number;
   name: string;
-  url: string;
+  url?: string;
+  link?: string;
 }
 
 const Quicklinks: quicklink[] = [
@@ -23,16 +24,16 @@ const Quicklinks: quicklink[] = [
     name: "Home",
     url: "/",
   },
-  {
-    id: 2,
-    name: "Contact Us",
-    url: "/",
-  },
   // {
-  //   id: 3,
-  //   name: "Visualization",
-  //   url: "/visualization",
+  //   id: 2,
+  //   name: "Contact Us",
+  //   url: "/",
   // },
+  {
+    id: 3,
+    name: "S2S",
+    link: "https://s2s.antarikchya.org.np/",
+  },
 ];
 
 const Footer = () => {
@@ -165,15 +166,29 @@ const Footer = () => {
             </h3>
             <ul className="space-y-1 md:space-y-1.5">
               {Quicklinks.map((link) => (
-                <li key={link.id}>
-                  <a
-                    href={link.url}
-                    className="text-gray-800 hover:text-gray-500 transition text-sm"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
+               
+                    <li key={link.id}>
+                      {link.link ? (
+                        <a
+                          href={link.link}
+                          className="text-gray-800 hover:text-gray-500 transition text-sm"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {link.name}
+                        </a>
+                      ) : (
+                        <a
+                          href={link.url}
+                          className="text-gray-800 hover:text-gray-500 transition text-sm"
+                        >
+                          {link.name}
+                        </a>
+                      )}
+                    </li>
+                  ) 
+              )
+            }
             </ul>
           </div>
 
