@@ -7,7 +7,7 @@ const Collabration = () => {
   return (
     <div className="flex-col  ">
       
-      <p className="text-[12px] mb-5 md:mb-10 mt-8 md:mt-20 flex justify-center uppercase tracking-[0.14em] text-black/45">
+      <p className="text-[14px] font-semibold mb-5 md:mb-10 mt-8 md:mt-20 flex justify-center uppercase tracking-[0.14em] text-black/45">
         In Collabration with
       </p>
       <div className="flex justify-center m-auto items-center flex-wrap gap-x-6 gap-y-4 max-w-full md:max-w-none md:flex-nowrap md:gap-x-10">

@@ -1,4 +1,5 @@
-import { useState, type ReactElement } from "react";
+import { useState, useEffect, type ReactElement } from "react";
+import { useLocation } from "react-router-dom";
 import logo from "../../assets/client/s2s2logo.webp";
 // import two_finger from "../../assets/client/two_fingers2.png";
 
@@ -84,16 +85,16 @@ const SUB_ICONS: Record<string, ReactElement> = {
 };
 
 // ── Logo ───────────────────────────────────────────────────────────────────
-function Logo() {
+function Logo({ scrolled }: { scrolled: boolean }) {
   return (
     <a href="/" className="flex items-center gap-0 no-underline">
       <img src={logo} alt="S2S-2 logo" width={48} height={48} className="rounded-full object-cover" />
       <div className="flex items-baseline gap-0 ml-1">
-        <span className="font-bold text-2xl text-[#2F5064] tracking-[0.12em] select-nonej playfairDisplayDiv">Slippers</span>
-        <span className="font-bold text-2xl text-[#C18374] tracking-[0.12em] select-none playfairDisplayDiv">2</span>
-        <span className="font-bold text-2xl text-[#2F5064] tracking-[0.12em] select-none">Sat-</span>
+        <span className={`font-bold text-2xl text-[#2F5064] tracking-[0.12em] select-nonej playfairDisplayDiv ${scrolled ?  "" : "text-gray-100"}`}>Slippers</span>
+        <span className={`font-bold text-2xl text-[#C18374] tracking-[0.12em] select-none playfairDisplayDiv ${scrolled ? "" : "text-gray-300"}`}>2</span>
+        <span className={`font-bold text-2xl text-[#2F5064] tracking-[0.12em] select-none ${scrolled ? "" : "text-gray-100"}`}>Sat-</span>
       </div>
-      <span className=" text-2xl font-bold  text-[#C18374] tracking-[0.12em] select-none playfairDisplayDiv">
+      <span className={` text-2xl font-bold  text-[#C18374] tracking-[0.12em] select-none playfairDisplayDiv ${scrolled ? "" : "text-gray-300"}`}>
         {/* <Bs2SquareFill size={18} /> */}
         {/* <img
           src={two_finger}
@@ -109,12 +110,12 @@ function Logo() {
 }
 
 // ── Desktop Nav ────────────────────────────────────────────────────────────
-function DesktopNav() {
+function DesktopNav({showOpaque}: {showOpaque: boolean}) {
   const [open, setOpen] = useState<string | null>(null);
 
   return (
-    <div className="hidden md:flex items-center justify-between w-full max-w-[100rem] mx-auto px-8 h-[90px]">
-      <Logo />
+    <div className={`hidden md:flex items-center justify-between w-full max-w-[100rem] mx-auto px-8 h-[90px] `}>
+      <Logo scrolled={showOpaque} />
 
       {/* Links */}
       <div className="flex items-center  gap-1.5 ">
@@ -126,14 +127,14 @@ function DesktopNav() {
             onMouseLeave={() => setOpen(null)}
           >
             {item.sub.length > 0 ? (
-              <button className="flex items-center gap-1 text-[#2F5064] text-[20px] hover:text-[#183148] px-3 py-7.5 rounded-lg transition-all duration-100 cursor-pointer ">
+              <button className={`flex items-center gap-1 text-[#2F5064] text-[20px] hover:text-[#183148] px-3 py-7.5 rounded-lg transition-all duration-100 cursor-pointer ${showOpaque ? "" : "text-white"}`}>
                 {item.label}
                 <ChevronDown open={open === item.label} />
               </button>
             ) : (
               <a
                 href={item.href}
-                className="flex items-center gap-1 text-[#2F5064] text-[20px] hover:text-[#183148] px-3 py-7.5 rounded-lg transition-all duration-100 cursor-pointer no-underline"
+                className={`flex items-center gap-1 text-[#2F5064] text-[20px] hover:text-[#183148] px-3 py-7.5 rounded-lg transition-all duration-100 cursor-pointer no-underline ${showOpaque ? "" : "text-white"}`}
               >
                 {item.label}
               </a>
@@ -148,7 +149,7 @@ function DesktopNav() {
                     href={s.href}
                     className="flex items-start gap-3 px-4 py-3 hover:bg-black/[0.05] rounded-sm transition-colors group no-underline"
                   >
-                    <div className="mt-0.5 w-8 h-8 flex-shrink-0 rounded-lg bg-[#ebe9e3] border border-black/[0.08] flex items-center justify-center">
+                    <div className={`mt-0.5 w-8 h-8 flex-shrink-0 rounded-lg bg-[#ebe9e3] border border-black/[0.08] flex items-center justify-center `}>
                       {SUB_ICONS[s.label]}
                     </div>
                     <div className="flex-1 min-w-0 ">
@@ -175,7 +176,7 @@ function DesktopNav() {
 }
 
 // ── Mobile Nav ─────────────────────────────────────────────────────────────
-function MobileNav() {
+function MobileNav( {showOpaque}: {showOpaque: boolean}) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [expandedItem, setExpandedItem] = useState<string | null>(null);
 
@@ -186,7 +187,7 @@ function MobileNav() {
     <>
       {/* Mobile top bar */}
       <div className="flex md:hidden items-center justify-between px-5 h-[62px]">
-        <Logo />
+        <Logo scrolled={showOpaque} />
         <button
           onClick={() => setMenuOpen((v) => !v)}
           className="text-black p-1.5 rounded-lg hover:bg-black/[0.05] transition-colors"
@@ -257,10 +258,36 @@ function MobileNav() {
 
 // ── NavBar ─────────────────────────────────────────────────────────────────
 const NavBar = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // NavBar background is transparent only when path is '/' and not scrolled, otherwise always opaque
+  const isHome = location.pathname === "/";
+  const showOpaque = !(isHome && !scrolled);
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#ebe9e3] ">
-      <DesktopNav />
-      <MobileNav />
+    <nav className="fixed top-0 left-0 right-0 z-50">
+      {/* Background overlay with fading opacity */}
+      <div
+        className={`absolute inset-0 w-full h-full transition-opacity duration-500 pointer-events-none bg-[#ebe9e3] ${showOpaque ? "opacity-100" : "opacity-0"}`}
+        aria-hidden="true"
+      />
+      <div className="relative">
+        <DesktopNav showOpaque={showOpaque} />
+        <MobileNav showOpaque={showOpaque} />
+      </div>
     </nav>
   );
 };

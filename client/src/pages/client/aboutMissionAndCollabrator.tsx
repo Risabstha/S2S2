@@ -12,12 +12,9 @@ const AboutMissionAndCollabrator = () => {
             Antarikchya Pratisthan Nepal
           </p>
           <p className="text-[15px] leading-[1.85] text-[#555]">
-            Slippers2Sat (S2S) is a 1U CubeSat initiated by Antarikchya
-            Pratisthan Nepal (APN) with financial support from Amateur Radio
-            Digital Communications (ARDC). Six APN engineers are designing the
-            satellite while training students at Navodaya School&apos;s Space
-            System Laboratory. Launch is scheduled for Q2 2025 — a pioneering
-            step for Nepal in educational space technology.
+            Slippers2Sat-2 (S2S-2) is a 1U CubeSat initiated by Antarikchya
+            Pratisthan Nepal (APN). Seven APN engineers are designing the
+            satellite.
           </p>
         </div>
 

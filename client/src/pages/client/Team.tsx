@@ -1,10 +1,6 @@
 import { useRef, useState } from "react";
 import kriti from "../../assets/client/Team/kriti.webp";
-import pari from "../../assets/client/Team/pari.webp";
-import rohit from "../../assets/client/Team/rohit.webp";
-import shristi from "../../assets/client/Team/shristi.webp";
 import subrat from "../../assets/client/Team/Subrat.webp";
-import sakril from "../../assets/client/Team/sakril.webp";
 import TeamCard, { type TeamMember } from "../../components/client/TeamCard";
 import male from "../../assets/client/Team/male.webp"
 
@@ -16,40 +12,13 @@ const TEAM_MEMBERS: TeamMember[] = [
     role: "Project Manager",
     bio: "Leads the Slippers2Sat-2 mission planning, cross-team coordination, and launch readiness activities.",
   },
-  {
-    id: "2",
-    img: pari,
-    name: "Pari Khaniwa",
-    role: "Satellite Research Fellow",
-    bio: "Works on attitude determination and control algorithms to maintain satellite stability in orbit.",
-  },
-  {
-    id: "3",
-    img: rohit,
-    name: "Rohit Shrestha",
-    role: "Satellite Research Fellow",
-    bio: "Designs and validates telemetry, tracking, and command subsystems for reliable mission operations.",
-  },
-    {
-    id: "4",
-    name: "Sakril Baidya",
-    role: "Satellite Research Fellow",
-    img: sakril,
-    bio: "Connects mission activities with student learning modules and school-based satellite workshops.",
-  },
+  
     {
     id: "5",
     name: "Arnav Shrestha",
     role: "Satellite Research Fellow",
     img: male,
     bio: "Connects mission activities with student learning modules and school-based satellite workshops.",
-  },
-  {
-    id: "6",
-    img: shristi,
-    name: "Shristi Tuladhar",
-    role: "Satellite Research Fellow",
-    bio: "Develops payload workflows and processing pipelines for Earth observation and mission data products.",
   },
   {
     id: "7",
