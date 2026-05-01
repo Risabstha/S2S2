@@ -46,7 +46,7 @@ function IconChip() {
 
 function ExternalArrow() {
   return (
-    <svg viewBox="0 0 12 12" fill="none" className="w-3 h-3 text-[#555] flex-shrink-0" stroke="currentColor" strokeWidth="1.5">
+    <svg viewBox="0 0 12 12" fill="none" className="w-3 h-3 text-[#555] shrink-0" stroke="currentColor" strokeWidth="1.5">
       <path d="M2 10L10 2M10 2H5M10 2v5" />
     </svg>
   );
@@ -90,11 +90,11 @@ function Logo({ scrolled }: { scrolled: boolean }) {
     <a href="/" className="flex items-center gap-0 no-underline">
       <img src={logo} alt="S2S-2 logo" width={48} height={48} className="rounded-full object-cover" />
       <div className="flex items-baseline gap-0 ml-1">
-        <span className={`font-bold text-2xl text-[#2F5064] tracking-[0.12em] select-nonej playfairDisplayDiv ${scrolled ?  "" : "text-gray-100"}`}>Slippers</span>
-        <span className={`font-bold text-2xl text-[#C18374] tracking-[0.12em] select-none playfairDisplayDiv ${scrolled ? "" : "text-gray-300"}`}>2</span>
-        <span className={`font-bold text-2xl text-[#2F5064] tracking-[0.12em] select-none ${scrolled ? "" : "text-gray-100"}`}>Sat-</span>
+        <span className={`font-bold text-2xl text-[#2F5064] tracking-[0.12em] select-nonej playfairDisplayDiv ${scrolled ?  "" : "md:text-gray-100 text-black"}`}>Slippers</span>
+        <span className={`font-bold text-2xl text-[#C18374] tracking-[0.12em] select-none playfairDisplayDiv ${scrolled ? "" : "md:text-gray-300 text-black"}`}>2</span>
+        <span className={`font-bold text-2xl text-[#2F5064] tracking-[0.12em] select-none ${scrolled ? "" : "md:text-gray-100 text-black"}`}>Sat-</span>
       </div>
-      <span className={` text-2xl font-bold  text-[#C18374] tracking-[0.12em] select-none playfairDisplayDiv ${scrolled ? "" : "text-gray-300"}`}>
+      <span className={` text-2xl font-bold  text-[#C18374] tracking-[0.12em] select-none playfairDisplayDiv ${scrolled ? "" : "md:text-gray-300 text-black"}`}>
         {/* <Bs2SquareFill size={18} /> */}
         {/* <img
           src={two_finger}
@@ -114,7 +114,7 @@ function DesktopNav({showOpaque}: {showOpaque: boolean}) {
   const [open, setOpen] = useState<string | null>(null);
 
   return (
-    <div className={`hidden md:flex items-center justify-between w-full max-w-[100rem] mx-auto px-8 h-[90px] `}>
+    <div className={`hidden md:flex items-center justify-between w-full max-w-400 mx-auto px-8 h-22.5 `}>
       <Logo scrolled={showOpaque} />
 
       {/* Links */}
@@ -141,15 +141,15 @@ function DesktopNav({showOpaque}: {showOpaque: boolean}) {
             )}
 
             {item.sub.length > 0 && open === item.label && (
-              <div className="absolute top-full left-0 bg-[#ebe9e3] border rounded-sm border-black/[0.09] p-2 min-w-[320px] shadow-2xl shadow-black/10 z-50">
+              <div className="absolute top-full left-0 bg-[#ebe9e3] border rounded-sm border-black/9 p-2 min-w-[320px] shadow-2xl shadow-black/10 z-50">
                 <div className="absolute -top-3 left-0 right-0 h-3" />
                 {item.sub.map((s) => (
                   <a
                     key={s.label}
                     href={s.href}
-                    className="flex items-start gap-3 px-4 py-3 hover:bg-black/[0.05] rounded-sm transition-colors group no-underline"
+                    className="flex items-start gap-3 px-4 py-3 hover:bg-black/5 rounded-sm transition-colors group no-underline"
                   >
-                    <div className={`mt-0.5 w-8 h-8 flex-shrink-0 rounded-lg bg-[#ebe9e3] border border-black/[0.08] flex items-center justify-center `}>
+                    <div className={`mt-0.5 w-8 h-8 shrink-0 rounded-lg bg-[#ebe9e3] border border-black/8 flex items-center justify-center `}>
                       {SUB_ICONS[s.label]}
                     </div>
                     <div className="flex-1 min-w-0 ">
@@ -183,14 +183,25 @@ function MobileNav( {showOpaque}: {showOpaque: boolean}) {
   const toggleItem = (label: string) =>
     setExpandedItem((prev) => (prev === label ? null : label));
 
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [menuOpen]);
+
   return (
     <>
       {/* Mobile top bar */}
-      <div className="flex md:hidden items-center justify-between px-5 h-[62px]">
+      <div className="flex md:hidden items-center justify-between px-5 h-15.5">
         <Logo scrolled={showOpaque} />
         <button
           onClick={() => setMenuOpen((v) => !v)}
-          className="text-black p-1.5 rounded-lg hover:bg-black/[0.05] transition-colors"
+          className="text-black p-1.5 rounded-lg hover:bg-black/5 transition-colors"
           aria-label="Toggle menu"
         >
           <HamburgerIcon open={menuOpen} />
@@ -199,57 +210,73 @@ function MobileNav( {showOpaque}: {showOpaque: boolean}) {
 
       {/* Mobile drawer */}
       {menuOpen && (
-        <div className="md:hidden border-t border-black/[0.08] bg-[#ebe9e3] px-4 pb-5">
-          {NAV_ITEMS.map((item) => (
-            <div key={item.label} className="">
-              {item.sub.length > 0 ? (
-                <>
-                  <button
-                    onClick={() => toggleItem(item.label)}
-                    className="flex items-center justify-between w-full py-3.5 text-[14px] font-medium text-[#2F5064] hover:text-[#183148] transition-colors"
-                  >
-                    {item.label}
-                    <ChevronDown open={expandedItem === item.label} />
-                  </button>
-
-                  {expandedItem === item.label && (
-                    <div className="pb-2 pl-2 flex flex-col gap-1">
-                      {item.sub.map((s) => (
-                        <a
-                          key={s.label}
-                          href="#"
-                          className="flex items-start gap-3 px-3 py-2.5 hover:bg-black/[0.05] rounded-lg transition-colors no-underline"
-                        >
-                          <div className="mt-0.5 w-7 h-7 flex-shrink-0 rounded-md bg-[#ebe9e3] border border-black/[0.08] flex items-center justify-center">
-                            {SUB_ICONS[s.label]}
-                          </div>
-                          <div>
-                            <div className="flex items-center gap-1.5">
-                              <span className="text-[13px] font-medium text-[#2F5064]">{s.label}</span>
-                              {s.external && <ExternalArrow />}
-                            </div>
-                            <p className="text-[11.5px] text-[#2F5064] mt-0.5 leading-relaxed">{s.desc}</p>
-                          </div>
-                        </a>
-                      ))}
-                    </div>
-                  )}
-                </>
-              ) : (
-                <a
-                  href={item.href ?? "#"}
-                  className="flex items-center py-3.5 text-[14px] font-medium text-[#2F5064] hover:text-[#183148] transition-colors no-underline"
-                >
-                  {item.label}
-                </a>
-              )}
+        <div className="fixed inset-0 z-50 md:hidden bg-[#ebe9e3]">
+          <div className="absolute inset-0 bg-black/10" onClick={() => setMenuOpen(false)} aria-hidden="true" />
+          <div className="relative flex h-full w-full flex-col">
+            <div className="flex items-center justify-between px-5 h-15.5 border-b border-black/8 bg-[#ebe9e3]">
+              <Logo scrolled={showOpaque} />
+              <button
+                onClick={() => setMenuOpen(false)}
+                className="text-black p-1.5 rounded-lg hover:bg-black/5 transition-colors"
+                aria-label="Close menu"
+              >
+                <HamburgerIcon open={menuOpen} />
+              </button>
             </div>
-          ))}
 
-          {/* CTA */}
-          {/* <button className="mt-4 w-full bg-[#C18374] hover:bg-[#183148] text-white text-[14px] font-medium py-2.5 rounded-full transition-colors duration-150">
-            Contact Us
-          </button> */}
+            <div className="flex-1 overflow-y-auto px-4 pb-5 pt-2 bg-[#ebe9e3]">
+              {NAV_ITEMS.map((item) => (
+                <div key={item.label} className="">
+                  {item.sub.length > 0 ? (
+                    <>
+                      <button
+                        onClick={() => toggleItem(item.label)}
+                        className="flex items-center justify-between w-full py-3.5 text-[14px] font-medium text-[#2F5064] hover:text-[#183148] transition-colors"
+                      >
+                        {item.label}
+                        <ChevronDown open={expandedItem === item.label} />
+                      </button>
+
+                      {expandedItem === item.label && (
+                        <div className="pb-2 pl-2 flex flex-col gap-1">
+                          {item.sub.map((s) => (
+                            <a
+                              key={s.label}
+                              href="#"
+                              className="flex items-start gap-3 px-3 py-2.5 hover:bg-black/5 rounded-lg transition-colors no-underline"
+                            >
+                              <div className="mt-0.5 w-7 h-7 shrink-0 rounded-md bg-[#ebe9e3] border border-black/8 flex items-center justify-center">
+                                {SUB_ICONS[s.label]}
+                              </div>
+                              <div>
+                                <div className="flex items-center gap-1.5">
+                                  <span className="text-[13px] font-medium text-[#2F5064]">{s.label}</span>
+                                  {s.external && <ExternalArrow />}
+                                </div>
+                                <p className="text-[11.5px] text-[#2F5064] mt-0.5 leading-relaxed">{s.desc}</p>
+                              </div>
+                            </a>
+                          ))}
+                        </div>
+                      )}
+                    </>
+                  ) : (
+                    <a
+                      href={item.href ?? "#"}
+                      className="flex items-center py-3.5 text-[18px]   font-medium text-[#2F5064] hover:text-[#183148] transition-colors no-underline"
+                    >
+                      {item.label}
+                    </a>
+                  )}
+                </div>
+              ))}
+
+              {/* CTA */}
+              {/* <button className="mt-4 w-full bg-[#C18374] hover:bg-[#183148] text-white text-[14px] font-medium py-2.5 rounded-full transition-colors duration-150">
+                Contact Us
+              </button> */}
+            </div>
+          </div>
         </div>
       )}
     </>
