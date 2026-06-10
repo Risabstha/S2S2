@@ -6,10 +6,12 @@ import {
 } from "react-router-dom";
 import { ErrorBoundary } from "react-error-boundary";
 import ScrollToTop from "../utils/ScrollToTop";
-import MainHome from "../pages/MainHome";
-import AboutUs from "../pages/client/AboutUs";
-import AmateurRadio from "../pages/client/AmateurRadio";
-
+import MainHome from "../pages/Home/MainHome";
+import AboutUs from "../pages/Aboutus/AboutUs";
+import AmateurRadio from "../pages/AmateurRadio";
+import BusSystem from "../pages/OpenSource/BusSystem";
+// import News from "../pages/Home/News";
+import OpenSourceLandingPage from "../pages/OpenSource/OpenSourceLandingPage";
 
 
 
@@ -96,6 +98,38 @@ const AppRouter = () => {
             </RouteWrapper>
           ),
         },
+         {
+          path: "/opensource/bus",
+          element: (
+            <RouteWrapper>
+              <BusSystem />
+            </RouteWrapper>
+          ),
+        },
+        // {
+        //   path: "/opensource/mission",
+        //   element: (
+        //     <RouteWrapper>
+        //       <S2S2Mission />
+        //     </RouteWrapper>
+        //   ),
+        // },
+        {
+          path: "/opensource",
+          element: (
+            <RouteWrapper>
+              <OpenSourceLandingPage />
+            </RouteWrapper>
+          ),
+        },
+        // {
+        //   path: "/news",
+        //   element: (
+        //     <RouteWrapper>
+        //       <News />
+        //     </RouteWrapper>
+        //   ),
+        // },
       ],
     },
   ]);

@@ -2,6 +2,7 @@
 import {  type JSX } from "react";
 
 
+
 interface cards {
   num: string;
   title: string;
