@@ -1,5 +1,5 @@
-import type { OpenSourceResource } from "../../pages/OpenSource/BusSystem";
-import type { OpenSourceItem } from "../../assets/Data/BusDetails";
+import type { OpenSourceResource } from "../../pages/OpenSource/MissionSystem";
+import type { OpenSourceItem } from "../../assets/Data/MissionDetails";
 
 interface CardProps {
   item: OpenSourceItem;

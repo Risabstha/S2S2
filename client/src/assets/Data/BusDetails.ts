@@ -1,40 +1,39 @@
-import ADCS from "../client/bus system/ ADCS.pdf";
-import EPDM from "../client/bus system/EPDM.pdf";
-import Camera from "../client/bus system/Camera.pdf";
-import Digipeater from "../client/bus system/Digipeater.pdf";
+import antenna from "../client/mission/Antenna Radiation Pattern-s2s2.pdf";
+import power_budget from "../client/mission/Power Budget.pdf";
+import transmission from "../client/mission/Transmission Plan.pdf";
+import link_budget from "../client/mission/Link Budget.pdf";
+import cad from "../client/mission/CAD_Drawing.pdf";
+import com_block_diagram from "../client/mission/ComBlockDiagram.pdf";
 
-// ─── TYPES ────────────────────────────────────────────────────────────────────
-
-export type ResourceIcon = "pdf" | "hardware" | "zip" | "github";
-
-export interface OpenSourceResource {
-  label: string;
-  icon: ResourceIcon;
-  href?: string; // optional link to resource (e.g., PDF, GitHub repo)
-}
-
-export interface OpenSourceItem {
-  id: string;
-  title: string;
-  description: string;
-  imageSrc: string;
-  imageAlt: string;
-  // accentColor: string;   // hex – used for dot, border, hover glows
-  resources: OpenSourceResource[];
-}
+// ─── TYPES (common type of bus system and mission) ────────────────────────────────────────────────────────────────────
+import type { OpenSourceItem, } from "./MissionDetails";
 
 // ─── DATA ─────────────────────────────────────────────────────────────────────
 
-export const busSystemITEMS: OpenSourceItem[] = [
+export const missionITEMS: OpenSourceItem[] = [
+  {
+    id: "111",
+    title: "CAD",
+    description:
+      "",
+    imageSrc: "https://s2s.antarikchya.org.np/admin/upload/mission/img/1765266343_adcswebp.webp",
+    imageAlt: "OBC board",
+    resources: [
+      { label: "Introduction PDF", icon: "pdf", href: cad},
+      // { label: "Hardware Schematics",     icon: "hardware"},
+      // { label: "Files ZIP",        icon: "zip", link: "" },
+      // { label: "GitHub Repo",      icon: "github", link: "" },
+    ],
+  },
   {
     id: "1",
-    title: "ADCS",
+    title: "Transmission Plan",
     description:
-      "Attitude Determination and Control System (ADCS) is a crucial subsystem of a satellite that determines and controls its orientation in space.",
+      "",
     imageSrc: "https://s2s.antarikchya.org.np/admin/upload/mission/img/1765266343_adcswebp.webp",
-    imageAlt: "ADCS board",
+    imageAlt: "transmission plan",
     resources: [
-      { label: "Introduction PDF", icon: "pdf", href: ADCS},
+      { label: "Introduction PDF", icon: "pdf", href: transmission},
       // { label: "Hardware Schematics",     icon: "hardware"},
       // { label: "Files ZIP",        icon: "zip", link: "" },
       // { label: "GitHub Repo",      icon: "github", link: "" },
@@ -42,26 +41,26 @@ export const busSystemITEMS: OpenSourceItem[] = [
   },
   {
     id: "2",
-    title: "EPDM",
+    title: "Communication (COM)",
     description:
-      "The Earthquake Precursor Detection Mission (EPDM) aims to detect early earthquake signals using advanced Quad-Mag technology. It employs four PNI RM3100 magnetometers to monitor ULF and ELF electromagnetic emissions from the Earths surface.",
+      "",
     imageSrc: "https://s2s.antarikchya.org.np/admin/upload/mission/img/1765267619_EPDMwebp.webp",
     imageAlt: "EPDM board",
     resources: [
-      { label: "Introduction PDF", icon: "pdf", href: EPDM },
+      { label: "Introduction PDF", icon: "pdf", href: com_block_diagram },
       // { label: "Hardware Schematics",     icon: "hardware" },
       // { label: "Files ZIP",        icon: "zip", link: "" },
     ],
   },
   {
     id: "3",
-    title: "Camera",
+    title: "Power System (EPS)",
     description:
-      "The satellite's camera system captures high-resolution images of Earth and space, providing valuable data for scientific research and Earth observation.",
+      "",
     imageSrc: "https://s2s.antarikchya.org.np/admin/upload/mission/img/1765266114_camerawebp.webp",
     imageAlt: "Camera board",
     resources: [
-      { label: "Introduction PDF", icon: "pdf", href: Camera },
+      { label: "Introduction PDF", icon: "pdf", href: power_budget },
       // { label: "Hardware Schematics",     icon: "hardware" },
       // { label: "Files ZIP",        icon: "zip" },
       // { label: "GitHub Repo",      icon: "github", link: "" },
@@ -69,13 +68,27 @@ export const busSystemITEMS: OpenSourceItem[] = [
   },
   {
     id: "4",
-    title: "Digipeater",
+    title: "Antenna Radiation Pattern",
     description:
-      "The mission establishes and maintains communication between the satellite and ground station. It enables command reception and data transmission over the Amateur UHF band.",
-    imageSrc: "https://s2s.antarikchya.org.np/admin/upload/mission/img/1765267983_digipeaterwebp.webp",
-    imageAlt: "Digipeater board",
+      "",
+    imageSrc: "https://s2s.antarikchya.org.np/images/bussystem/antennaboradwebp.webp",
+    imageAlt: "Antenna board",
     resources: [
-      { label: "Introduction PDF", icon: "pdf", href: Digipeater },
+      { label: "Introduction PDF", icon: "pdf", href: antenna},
+      // { label: "Hardware Schematics",     icon: "hardware" },
+      // { label: "Files ZIP",        icon: "zip" },
+      // { label: "GitHub Repo",      icon: "github", link: ""},
+    ],
+  },
+   {
+    id: "5",
+    title: "Link Budget",
+    description:
+      "",
+    imageSrc: "https://s2s.antarikchya.org.np/images/bussystem/antennaboradwebp.webp",
+    imageAlt: "Antenna board",
+    resources: [
+      { label: "Introduction PDF", icon: "pdf", href: link_budget},
       // { label: "Hardware Schematics",     icon: "hardware" },
       // { label: "Files ZIP",        icon: "zip" },
       // { label: "GitHub Repo",      icon: "github", link: ""},

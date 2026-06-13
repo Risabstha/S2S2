@@ -26,56 +26,24 @@ const NAV_ITEMS: NavItem[] = [
     href: "/opensource",
     sub: [
       {
-        label: "Bus System",
-        desc: "Satellite bus architecture and hardware specs.",
-        href: "/opensource/bus",
+        label: "S2S-2 Missions",
+        desc: "Satellite mission architecture and hardware specs.",
+        href: "/opensource/mission/amateur",
       },
       // {
-      //   label: "S2S-2 Missions",
+      //   label: "Bus System",
       //   desc: "Satellite bus architecture and hardware specs.",
       //   href: "/opensource/mission",
       // },
     ],
   },
-  { label: "Amateur Radio", sub: [], href: "/amateur-radio" },
+  { label: "Amateur Radio", sub: [], href: "/amateur" },
   // { label: "Gallery", sub: [{
   // label: "Training", desc: "Training materials and resources." }]
   // },
   { label: "About Us", sub: [], href: "/aboutus" },
 ];
 
-// ── Icons ──────────────────────────────────────────────────────────────────
-function IconRocket() {
-  return (
-    <svg
-      viewBox="0 0 20 20"
-      fill="none"
-      className="w-4 h-4 text-[#888]"
-      stroke="currentColor"
-      strokeWidth="1.5"
-    >
-      <path d="M10 2s4 2.5 4 8l-4 6-4-6c0-5.5 4-8 4-8z" />
-      <circle cx="10" cy="10" r="1.2" fill="currentColor" stroke="none" />
-      <path d="M7.5 14.5l-2.5 2.5M12.5 14.5l2.5 2.5" />
-    </svg>
-  );
-}
-
-function IconChip() {
-  return (
-    <svg
-      viewBox="0 0 20 20"
-      fill="none"
-      className="w-4 h-4 text-[#888]"
-      stroke="currentColor"
-      strokeWidth="1.5"
-    >
-      <rect x="5" y="5" width="10" height="10" rx="1.5" />
-      <path d="M8 5V3M12 5V3M8 17v-2M12 17v-2M5 8H3M5 12H3M15 8h2M15 12h2" />
-      <rect x="7.5" y="7.5" width="5" height="5" rx="0.5" />
-    </svg>
-  );
-}
 
 function ExternalArrow() {
   return (
@@ -133,8 +101,40 @@ function HamburgerIcon({ open }: { open: boolean }) {
 }
 
 const SUB_ICONS: Record<string, ReactElement> = {
-  "S2S-2 Missions": <IconRocket />,
-  "Bus System": <IconChip />,
+  "S2S-2 Missions": <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="30"
+                  height="30"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="lucide lucide-satellite-dish-icon lucide-satellite-dish"
+                >
+                  <path d="M4 10a7.31 7.31 0 0 0 10 10Z" />
+                  <path d="m9 15 3-3" />
+                  <path d="M17 13a6 6 0 0 0-6-6" />
+                  <path d="M21 13A10 10 0 0 0 11 3" />
+                </svg>,
+  "Bus System":  <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="lucide lucide-arrow-left-right-icon lucide-arrow-left-right"
+                >
+                  <path d="M8 3 4 7l4 4" />
+                  <path d="M4 7h16" />
+                  <path d="m16 21 4-4-4-4" />
+                  <path d="M20 17H4" />
+                </svg>,
 };
 
 // ── Logo ───────────────────────────────────────────────────────────────────
@@ -204,7 +204,7 @@ function DesktopNav({ showOpaque }: { showOpaque: boolean }) {
             {item.sub.length > 0 ? (
               <a
                 href={item.href ?? "#"}
-                className={`flex items-center gap-1   text-[20px] px-3 py-7.5 rounded-lg transition-all duration-100 cursor-pointer ${showOpaque ? " hover:text-gray-500" : "text-white hover:text-gray-300"}`}
+                className={`flex items-center gap-1  text-[20px] px-3 py-7.5 rounded-lg transition-all duration-100 cursor-pointer ${showOpaque ? " hover:text-gray-500" : "text-white hover:text-gray-300"}`}
               >
                 {item.label}
                 <ChevronDown open={open === item.label} />
@@ -219,7 +219,7 @@ function DesktopNav({ showOpaque }: { showOpaque: boolean }) {
             )}
 
             {item.sub.length > 0 && open === item.label && (
-              <div className="absolute left-1/2 -translate-x-1/2 top-full bg-[#ebe9e3] border rounded-sm border-black/9 p-2 min-w-[320px] shadow-2xl shadow-black/10 z-50">
+              <div className="absolute left-1/2  -translate-x-1/2 top-full bg-[#ebe9e3] border rounded-sm border-black/9 p-2 min-w-[320px] shadow-2xl shadow-black/10 z-50">
                 <div className="absolute -top-3 left-0 right-0 h-3" />
                 {item.sub.map((s) => (
                   <a
@@ -228,7 +228,7 @@ function DesktopNav({ showOpaque }: { showOpaque: boolean }) {
                     className="flex items-start gap-3 px-4 py-3 hover:bg-black/5 rounded-sm transition-colors group no-underline"
                   >
                     <div
-                      className={`mt-0.5 w-8 h-8 shrink-0 rounded-lg bg-[#ebe9e3] border border-black/8 flex items-center justify-center `}
+                      className={`mt-0.5 w-8 h-8 shrink-0 rounded-lg text-[#9F6FFA] bg-[#ebe9e3] border border-black/8 flex items-center justify-center `}
                     >
                       {SUB_ICONS[s.label]}
                     </div>
@@ -339,7 +339,7 @@ function MobileNav({ showOpaque }: { showOpaque: boolean }) {
                               href={s.href ?? "#"}
                               className="flex items-start gap-3 px-3 py-2.5 hover:bg-black/5 rounded-lg transition-colors no-underline"
                             >
-                              <div className="mt-0.5 w-8 h-8 shrink-0 rounded-md bg-[#ebe9e3] border border-black/8 flex items-center justify-center">
+                              <div className="mt-0.5 w-8 h-8 shrink-0 rounded-md text-[#9F6FFA] bg-[#ebe9e3] border border-black/8 flex items-center justify-center">
                                 {SUB_ICONS[s.label]}
                               </div>
                               <div>

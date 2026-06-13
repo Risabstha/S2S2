@@ -20,7 +20,7 @@ const DOCUMENTS: Document[] = [
     id: "antenna",
     title: "Antenna Radiation Pattern",
     description:
-      "Technical documentation for antenna radiation patterns and performance characteristics for S2S amateur radio operations.",
+      "Technical documentation for antenna radiation patterns and performance characteristics for S2S-2 amateur radio operations.",
     icon: <AntennIcon />,
     downloadUrl: antenna,
   },

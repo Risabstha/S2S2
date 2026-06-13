@@ -23,7 +23,7 @@ const Card: React.FC<CardProps> = ({
   onButtonClick,
 }) => {
   return (
-    <div className="flex flex-col justify-between w-full max-w-[420px] bg-white rounded-lg shadow-sm border border-slate-100/80 overflow-hidden min-h-[460px]">
+    <div className="flex flex-col justify-between w-full max-w-[420px] bg-[#f1f1ee] rounded-lg shadow-sm border border-slate-100/80 overflow-hidden min-h-[460px]">
       {/* Card Content */}
       <div className="p-8 pb-4">
         <div className="flex items-center gap-6 mb-4">
@@ -72,10 +72,10 @@ const Card: React.FC<CardProps> = ({
       </div>
 
       {/* Card Footer / Action Button */}
-      <div className="p-6 bg-slate-50/50 border-t border-slate-100/60 flex items-center">
+      <div className="p-6 bg-[#f1f1ee] border-t border-slate-100/60 flex items-center">
         <button
           onClick={onButtonClick}
-          className="flex w-full justify-center items-center gap-2 px-5 py-2.5 bg-[#EDEAED] hover:bg-[#D8D4D8] border border-slate-200 hover:border-slate-300 rounded-md text-xs font-semibold text-slate-800 transition-colors duration-200 shadow-sm hover:shadow-md"
+          className="flex w-full justify-center items-center gap-2 px-5 py-2.5 bg-[#EDEAED] hover:bg-[#D8D4D8] border border-slate-200 hover:border-slate-300 rounded-md text-base  font-semibold text-slate-800 transition-colors duration-200 shadow-sm hover:shadow-md"
         >
           {buttonText}
           <ArrowRight className="w-3.5 h-3.5 text-slate-600" />
@@ -112,7 +112,7 @@ export default function OpenSourceLandingPage() {
           {/* Cards Container */}
           <div className="flex flex-col md:flex-row   gap-6 lg:gap-6 xl:gap-12 w-full  justify-center items-center md:items-stretch">
             {/* BUS System Card */}
-            <Card
+            {/* <Card
               title="BUS System"
               description="The bus system provides the core infrastructure required for satellite operation."
               items={[
@@ -122,9 +122,9 @@ export default function OpenSourceLandingPage() {
                 "Structure",
               ]}
               buttonText="Access BUS System"
-              onButtonClick={() => handleNavigation("bus")}
+              onButtonClick={() => handleNavigation("bus/amateur")}
               icon={
-                /* Custom Bi-directional Arrow Icon matching the image */
+                // Custom Bi-directional Arrow Icon matching the image 
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -143,15 +143,15 @@ export default function OpenSourceLandingPage() {
                   <path d="M20 17H4" />
                 </svg>
               }
-            />
+            /> */}
 
             {/* S2S Mission Card */}
-            {/* <Card
-              title="S2S Mission"
+             <Card
+              title="S2S-2 Mission"
               description="The mission system consists of payloads that define the satellite's purpose."
               items={["ADCS", "EPDM", "Camera", "Digipeater"]}
-              buttonText="Launch S2S Mission"
-              onButtonClick={() => handleNavigation("bus")}
+              buttonText="Launch S2S-2 Mission"
+              onButtonClick={() => handleNavigation("mission/amateur")}
               icon={
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -171,7 +171,7 @@ export default function OpenSourceLandingPage() {
                   <path d="M21 13A10 10 0 0 0 11 3" />
                 </svg>
               }
-            /> */}
+            /> 
           </div>
         </section>
       </div>

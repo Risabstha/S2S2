@@ -9,9 +9,9 @@ import ScrollToTop from "../utils/ScrollToTop";
 import MainHome from "../pages/Home/MainHome";
 import AboutUs from "../pages/Aboutus/AboutUs";
 import AmateurRadio from "../pages/AmateurRadio";
-import BusSystem from "../pages/OpenSource/BusSystem";
 // import News from "../pages/Home/News";
 import OpenSourceLandingPage from "../pages/OpenSource/OpenSourceLandingPage";
+import MissionSystem from "../pages/OpenSource/MissionSystem";
 
 
 
@@ -91,7 +91,7 @@ const AppRouter = () => {
           ),
         },
         {
-          path: "/amateur-radio",
+          path: "/amateur",
           element: (
             <RouteWrapper>
               <AmateurRadio />
@@ -99,10 +99,10 @@ const AppRouter = () => {
           ),
         },
          {
-          path: "/opensource/bus",
+          path: "/opensource/mission/amateur",
           element: (
             <RouteWrapper>
-              <BusSystem />
+              <MissionSystem />
             </RouteWrapper>
           ),
         },
